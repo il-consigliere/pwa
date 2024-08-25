@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 
-import { App } from '@/app'
+import { App, watchHeight } from '@/app'
 
+watchHeight()
 createApp(App).mount('#app')
