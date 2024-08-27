@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <div>Game Page</div>
+  <div>Страница игры</div>
 </template>
