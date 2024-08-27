@@ -2,4 +2,4 @@ export * from './storage'
 
 export { useExit } from './hooks'
 
-export { enter, loadInitialData } from './actions'
+export { enter, addPlayer, loadInitialData } from './actions'

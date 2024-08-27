@@ -45,9 +45,14 @@ const clearForm = () => {
 const onSubmit = () => {
   loadingBar.start()
 
-  changePassword(repeat.value).then(() => {
-    loadingBar.finish()
-    message.success('Пароль изменён')
+  changePassword(repeat.value).then(result => {
+    if (result) {
+      loadingBar.finish()
+      message.success('Пароль изменён')
+    } else {
+      loadingBar.error()
+      message.error('Не удалось сменить пароль')
+    }
   })
 
   clearForm()

@@ -20,10 +20,10 @@ export const get = async <T>(path: string): Promise<T | null> => {
   }
 }
 
-export const postFormData = async (
+export const postFormData = async <T>(
   path: string,
   data: Record<string, string>,
-) => {
+): Promise<T | null> => {
   const body = new FormData()
 
   Object.entries(data).forEach(([key, value]) => {

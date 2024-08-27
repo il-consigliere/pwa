@@ -3,6 +3,7 @@ import {
   Menu,
   LogoGithub,
   KeyOutline,
+  PersonOutline,
   LogOutOutline,
   ColorFillOutline,
 } from '@vicons/ionicons5'
@@ -12,6 +13,7 @@ import { NIcon, NButton, NDropdown } from 'naive-ui'
 import { useExit, dataIsReady } from '@/service'
 import { useChangeTheme } from '@/features/theme'
 import { PasswordModal, callPasswordModal } from '@/features/password'
+import { AddPlayerModal, callAddPlayerModal } from '@/features/add-player'
 
 const { exit } = useExit()
 const { themeName, changeTheme } = useChangeTheme()
@@ -35,6 +37,11 @@ const options = computed(() => [
           key: 'change-password',
           label: 'Сменить пароль',
           icon: renderIcon(KeyOutline),
+        },
+        {
+          key: 'add-player',
+          label: 'Добавить игрока',
+          icon: renderIcon(PersonOutline),
         },
       ]
     : []),
@@ -73,6 +80,10 @@ const handleSelect = (key: string) => {
       callPasswordModal()
 
       break
+    case 'add-player':
+      callAddPlayerModal()
+
+      break
     case 'exit':
       exit()
 
@@ -96,4 +107,5 @@ const handleSelect = (key: string) => {
   </NDropdown>
 
   <PasswordModal />
+  <AddPlayerModal />
 </template>

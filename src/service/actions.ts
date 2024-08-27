@@ -15,6 +15,21 @@ export const loadInitialData = async () => {
   return result
 }
 
+export const addPlayer = async (name: string, comment: string) => {
+  const result = await postFormData<{ player_id: number }>('add-player', {
+    name,
+    comment: comment || '—',
+  })
+
+  if (!result) {
+    return null
+  }
+
+  players.value.push({ comment, title: name, id: result.player_id })
+
+  return result.player_id
+}
+
 export const enter = async (name: string, password: string) => {
   const result = await postFormData('enter', { name, password })
 
