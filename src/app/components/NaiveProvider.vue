@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {
-  NConfigProvider,
   NGlobalStyle,
-  NLoadingBarProvider,
-  NMessageProvider,
+  NConfigProvider,
   NDialogProvider,
+  NMessageProvider,
+  NLoadingBarProvider,
 } from 'naive-ui'
 
 import { theme } from '@/features/theme'

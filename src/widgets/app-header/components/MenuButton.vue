@@ -2,6 +2,7 @@
 import {
   Menu,
   LogoGithub,
+  KeyOutline,
   LogOutOutline,
   ColorFillOutline,
 } from '@vicons/ionicons5'
@@ -10,6 +11,7 @@ import { NIcon, NButton, NDropdown } from 'naive-ui'
 
 import { useExit, dataIsReady } from '@/service'
 import { useChangeTheme } from '@/features/theme'
+import { PasswordModal, callPasswordModal } from '@/features/password'
 
 const { exit } = useExit()
 const { themeName, changeTheme } = useChangeTheme()
@@ -27,6 +29,15 @@ const options = computed(() => [
     label: () => labelThemeName.value,
     icon: renderIcon(ColorFillOutline),
   },
+  ...(dataIsReady.value
+    ? [
+        {
+          key: 'change-password',
+          label: 'Сменить пароль',
+          icon: renderIcon(KeyOutline),
+        },
+      ]
+    : []),
   {
     key: 'github',
     label: () =>
@@ -58,6 +69,10 @@ const handleSelect = (key: string) => {
       changeTheme()
 
       break
+    case 'change-password':
+      callPasswordModal()
+
+      break
     case 'exit':
       exit()
 
@@ -79,4 +94,6 @@ const handleSelect = (key: string) => {
       </template>
     </NButton>
   </NDropdown>
+
+  <PasswordModal />
 </template>
