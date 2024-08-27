@@ -1,6 +1,10 @@
 import { createApp } from 'vue'
 
 import { App, watchHeight } from '@/app'
+import { loadInitialData } from '@/service'
 
 watchHeight()
-createApp(App).mount('#app')
+
+loadInitialData().then(() => {
+  createApp(App).mount('#app')
+})
