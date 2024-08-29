@@ -12,6 +12,7 @@ import { KeyOutline, LogInOutline, PersonOutline } from '@vicons/ionicons5'
 
 import { enter } from '@/service'
 import { FormSubmit } from '@/shared'
+import { writeSelectedPlayers } from '@/features/select-players'
 
 const name = ref('')
 const password = ref('')
@@ -35,6 +36,8 @@ const onSubmit = () => {
     }
   })
 }
+
+writeSelectedPlayers([])
 </script>
 
 <template>

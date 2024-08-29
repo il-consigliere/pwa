@@ -4,6 +4,7 @@ import {
   NModal,
   NSpace,
   NInput,
+  NCheckbox,
   useMessage,
   useLoadingBar,
 } from 'naive-ui'
@@ -13,10 +14,11 @@ import { PersonOutline, SendOutline } from '@vicons/ionicons5'
 import { FormSubmit } from '@/shared'
 import { addPlayer } from '@/service'
 
-import { showAddPlayerModal } from './model'
+import { showAddPlayerModal, selectPlayerCallback } from './model'
 
 const name = ref('')
 const comment = ref('')
+const select = ref(false)
 const message = useMessage()
 const loadingBar = useLoadingBar()
 
@@ -34,6 +36,10 @@ const onSubmit = () => {
     if (id) {
       loadingBar.finish()
       message.success(`+ ID ${id}, ${value}`)
+
+      if (select.value && selectPlayerCallback.value) {
+        selectPlayerCallback.value(id)
+      }
     } else {
       loadingBar.error()
       message.error('Не удалось добавить игрока')
@@ -72,6 +78,8 @@ const onSubmit = () => {
           placeholder="Можете добавить комментарий"
           :input-props="{ name: 'player-description' }"
         />
+
+        <NCheckbox v-model:checked="select">Выбрать на игру</NCheckbox>
 
         <FormSubmit :disabled="!name">
           <template #icon>

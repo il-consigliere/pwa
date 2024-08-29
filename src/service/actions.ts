@@ -25,7 +25,7 @@ export const addPlayer = async (name: string, comment: string) => {
     return null
   }
 
-  players.value.push({ comment, title: name, id: result.player_id })
+  players.value.push({ name, comment, id: result.player_id })
 
   return result.player_id
 }
