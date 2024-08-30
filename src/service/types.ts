@@ -7,7 +7,9 @@ export interface GameRole extends TitledEntity {
   teamId: number
 }
 
-export interface GamePlayer extends TitledEntity {
+export interface GamePlayer {
+  id: number
+  name: string
   comment: string
 }
 
