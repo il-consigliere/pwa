@@ -1,0 +1,9 @@
+.player-thing {
+  &.player-dead {
+    opacity: 0.4;
+
+    .n-thing-header__title {
+      text-decoration: line-through;
+    }
+  }
+}

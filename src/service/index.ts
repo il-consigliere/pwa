@@ -1,5 +1,7 @@
 export * from './storage'
 
-export { useExit } from './hooks'
+export { useExit } from './exit-hook'
 
-export { enter, addPlayer, loadInitialData } from './actions'
+export type { GameInServer } from './types'
+
+export { enter, saveGame, addPlayer, loadInitialData } from './actions'

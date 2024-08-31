@@ -41,10 +41,7 @@ export const postFormData = async <T>(
   }
 }
 
-export const postJsonData = async (
-  path: string,
-  data: Record<string, unknown>,
-) => {
+export const postJsonData = async (path: string, data: unknown) => {
   try {
     const response = await fetch(`api/${path}`, {
       method: 'POST',

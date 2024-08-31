@@ -7,6 +7,10 @@ export interface GameRole extends TitledEntity {
   teamId: number
 }
 
+export interface GameRoleInServer extends TitledEntity {
+  team_id: number
+}
+
 export interface GamePlayer {
   id: number
   name: string
@@ -14,7 +18,15 @@ export interface GamePlayer {
 }
 
 export interface InitialData {
-  roles: GameRole[]
   teams: TitledEntity[]
   players: GamePlayer[]
+  roles: GameRoleInServer[]
+}
+
+export interface GameInServer {
+  winningTeamId: number
+  players: {
+    id: number
+    roleId: number
+  }[]
 }
