@@ -79,7 +79,9 @@ const onSubmit = () => {
           :input-props="{ name: 'player-description' }"
         />
 
-        <NCheckbox v-model:checked="select">Выбрать на игру</NCheckbox>
+        <NCheckbox v-if="selectPlayerCallback" v-model:checked="select">
+          Выбрать на игру
+        </NCheckbox>
 
         <FormSubmit :disabled="!name">
           <template #icon>

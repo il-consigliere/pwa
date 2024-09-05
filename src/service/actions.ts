@@ -1,15 +1,20 @@
-import { get, postFormData } from '@/shared'
+import { get, postFormData, postJsonData } from '@/shared'
 
-import { InitialData } from './types'
 import { teams, roles, players } from './storage'
+import { InitialData, GameInServer } from './types'
 
 export const loadInitialData = async () => {
   const result = await get<InitialData>('data')
 
   if (result) {
     teams.value = result.teams
-    roles.value = result.roles
     players.value = result.players
+
+    roles.value = result.roles.map(role => ({
+      id: role.id,
+      title: role.title,
+      teamId: role.team_id,
+    }))
   }
 
   return result
@@ -29,6 +34,8 @@ export const addPlayer = async (name: string, comment: string) => {
 
   return result.player_id
 }
+
+export const saveGame = (game: GameInServer) => postJsonData('save-game', game)
 
 export const enter = async (name: string, password: string) => {
   const result = await postFormData('enter', { name, password })
