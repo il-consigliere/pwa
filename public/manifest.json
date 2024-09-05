@@ -1,0 +1,55 @@
+{
+  "id": "com.il-consigliere",
+  "name": "Il Consigliere",
+  "short_name": "Мафия",
+  "scope": "/",
+  "start_url": "/",
+  "lang": "ru",
+  "dir": "ltr",
+  "display": "standalone",
+  "theme_color": "#008080",
+  "background_color": "#008080",
+  "prefer_related_applications": false,
+  "description": "Помощник ведущего Мафии",
+  "categories": ["games"],
+  "launch_handler": {
+    "route_to": "auto",
+    "client_mode": "auto"
+  },
+  "orientation": "portrait",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
+  "window-controls-overlay": {
+    "display": "auto"
+  },
+  "icons": [
+    {
+      "src": "icons/i192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/i512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/start.png",
+      "sizes": "480x854",
+      "type": "image/png",
+      "label": "Подготовка"
+    },
+    {
+      "src": "screenshots/finish.png",
+      "sizes": "480x854",
+      "type": "image/png",
+      "label": "Игра"
+    }
+  ],
+  "edge_side_panel": {
+    "default_icon": "icons/i192.png",
+    "default_title": "Il Consigliere",
+    "default_panel_width": 300
+  }
+}
