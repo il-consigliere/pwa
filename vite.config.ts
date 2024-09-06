@@ -18,4 +18,15 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vue: ['vue'],
+          ui: ['naive-ui'],
+          icons: ['@vicons/ionicons5'],
+        },
+      },
+    },
+  },
 })
