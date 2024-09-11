@@ -9,7 +9,7 @@ import MenuButton from './MenuButton.vue'
     <NText>Il Consigliere</NText>
 
     <div class="header-content">
-      <NText>1.0.0</NText>
+      <NText>1.0.1</NText>
       <MenuButton />
     </div>
   </NLayoutHeader>
